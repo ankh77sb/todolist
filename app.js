@@ -1,4 +1,5 @@
 
+    require('dotenv').config();
     const express = require("express");
     const bodyParser = require("body-parser");
     const _ = require("lodash");
@@ -6,9 +7,7 @@
 
     const app = express();
 
-
-
-    mongoose.connect("mongodb+srv://admin-anupama:natsu123@cluster0.swofm.mongodb.net/todolistDB?retryWrites=true&w=majority", {useNewUrlParser: true});
+    mongoose.connect(process.env.DB_HOST, {useNewUrlParser: true});
 
     //schema
     const itemsSchema = {
